@@ -10,16 +10,18 @@ namespace Sudoku
         public bool isFixed;
         public int value;
     };
+
     class Sudoku
     {
         public Number[,] board = new Number[9, 9];
 
 
+        /*
         private void PrintConsole()
         {
-            for(int i = 0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
-                for(int j = 0; j<9; j++)
+                for (int j = 0; j < 9; j++)
                 {
                     Console.Write(board[i, j]);
                     if (j % 3 == 2)
@@ -28,7 +30,7 @@ namespace Sudoku
                 if (i % 3 == 2)
                     Console.Write("\n");
             }
-        }
+        }*/
 
         bool IsSolution(int row, int col) { return row < 9 && col < 9; }
         bool IsValid(int row, int col, int value)
@@ -142,5 +144,6 @@ namespace Sudoku
 
             return false;
         }
+
     }
 }
