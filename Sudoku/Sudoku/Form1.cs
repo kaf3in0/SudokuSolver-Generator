@@ -18,7 +18,8 @@ namespace Sudoku
         }
 
         private TextBox GetTextBoxAt(int row, int col)
-        { return (TextBox)table.GetControlFromPosition(row, col);
+            // This is just how this retarded function works  COL then ROW
+        { return (TextBox)table.GetControlFromPosition(col, row); 
         }
 
         void CreateTextBoxes()
@@ -75,7 +76,7 @@ namespace Sudoku
             CreateTextBoxes();
             PrintAndSolvePuzzle();
             UI();
-            
+
         }
 
         private void button_Click(object sender, EventArgs e)
@@ -85,18 +86,14 @@ namespace Sudoku
 
         private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
-            // This calculates how big the cell of the table is 
-            var height = (GetTextBoxAt(0, 3).Top) - (GetTextBoxAt(0, 3).Bottom);
 
+        }
 
-       
-            e.Graphics.FillRectangle(Brushes.Blue, GetTextBoxAt(0, 2).Left, GetTextBoxAt(0, 2).Bottom + 1, table.Width - 6, 4);
-            e.Graphics.FillRectangle(Brushes.Blue, GetTextBoxAt(0, 5).Left, GetTextBoxAt(0, 5).Bottom + 1, table.Width - 6, 4);
-
-
-            e.Graphics.FillRectangle(Brushes.Black, GetTextBoxAt(2, 0).Right, GetTextBoxAt(2, 0).Top, table.Width, 4);
-            e.Graphics.FillRectangle(Brushes.Black, GetTextBoxAt(5, 0).Right, GetTextBoxAt(5, 0).Top, table.Width, 4);
-            //e.Graphics.FillRectangle(Brushes.Black, GetTextBoxAt(8, 0).Right, GetTextBoxAt(8, 0).Top, table.Width, 4);
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 form2 = new Form2();
+            form2.Show();
+            this.Hide();
         }
     }
 }
