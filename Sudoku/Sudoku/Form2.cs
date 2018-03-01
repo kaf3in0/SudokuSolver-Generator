@@ -22,5 +22,10 @@ namespace Sudoku
             form1.Show();
             this.Hide();
         }
+
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

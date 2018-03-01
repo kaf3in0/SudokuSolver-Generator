@@ -43,6 +43,7 @@
             this.PlayButton.Text = "Play";
             this.PlayButton.UseCompatibleTextRendering = true;
             this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // button1
             // 
@@ -75,6 +76,7 @@
             this.Controls.Add(this.PlayButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
 
