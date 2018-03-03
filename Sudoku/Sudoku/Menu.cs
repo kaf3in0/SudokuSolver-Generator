@@ -9,23 +9,25 @@ using System.Windows.Forms;
 
 namespace Sudoku
 {
-    public partial class Form2 : Form
+    public partial class Menu : Form
     {
-        public Form2()
+        public Menu()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void GenerateSolvedButton_Click(object sender, EventArgs e)
         {
-            Form1 form1 = new Form1();
-            form1.Show();
+            GenerateSolvedForm form = new GenerateSolvedForm();
+            form.Show();
             this.Hide();
         }
 
         private void PlayButton_Click(object sender, EventArgs e)
         {
-
+            PlayGameForm form = new PlayGameForm();
+            form.Show();
+            this.Hide();
         }
     }
 }

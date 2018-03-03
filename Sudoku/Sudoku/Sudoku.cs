@@ -38,7 +38,7 @@ namespace Sudoku
             return true;
         }
 
-        bool Solve(int row, int col)
+        public bool Solve(int row, int col)
         {
             if (IsSolution(row, col))
             {
@@ -82,8 +82,9 @@ namespace Sudoku
             else return true;
         }
 
-        void GeneratePuzzle()
+        public void GeneratePuzzle()
         {
+            InitBoard();
             Random random = new Random();
             int fixedRemaining = 17;
             while(fixedRemaining > 0)
@@ -107,25 +108,13 @@ namespace Sudoku
             }
         }
 
-
         private void InitBoard()
         {
-            for(int i = 0; i<9; i++)
+            for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < 9; j++)
                     board[i, j].value = 0;
             }
-        }
-        public bool main()
-        {
-            InitBoard();
-            GeneratePuzzle();
-            if(Solve(0,0))
-            {
-                return true;
-            }
-
-            return false;
         }
 
     }

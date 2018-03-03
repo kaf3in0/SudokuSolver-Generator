@@ -1,6 +1,6 @@
 ﻿namespace Sudoku
 {
-    partial class Form2
+    partial class Menu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             this.PlayButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.GenerateSolvedButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -45,16 +45,16 @@
             this.PlayButton.UseVisualStyleBackColor = true;
             this.PlayButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
-            // button1
+            // GenerateSolvedButton
             // 
-            this.button1.Location = new System.Drawing.Point(123, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(168, 58);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Generate Solved";
-            this.button1.UseCompatibleTextRendering = true;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.GenerateSolvedButton.Location = new System.Drawing.Point(123, 98);
+            this.GenerateSolvedButton.Name = "GenerateSolvedButton";
+            this.GenerateSolvedButton.Size = new System.Drawing.Size(168, 58);
+            this.GenerateSolvedButton.TabIndex = 0;
+            this.GenerateSolvedButton.Text = "Generate Solved";
+            this.GenerateSolvedButton.UseCompatibleTextRendering = true;
+            this.GenerateSolvedButton.UseVisualStyleBackColor = true;
+            this.GenerateSolvedButton.Click += new System.EventHandler(this.GenerateSolvedButton_Click);
             // 
             // button2
             // 
@@ -72,7 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(400, 269);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.GenerateSolvedButton);
             this.Controls.Add(this.PlayButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form2";
@@ -85,7 +85,7 @@
         #endregion
 
         private System.Windows.Forms.Button PlayButton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button GenerateSolvedButton;
         private System.Windows.Forms.Button button2;
     }
 }
