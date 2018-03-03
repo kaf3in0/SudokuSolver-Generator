@@ -64,6 +64,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sudoku.cs" />
+    <Compile Include="UI.cs" />
     <EmbeddedResource Include="GenerateSolved.resx">
       <DependentUpon>GenerateSolved.cs</DependentUpon>
     </EmbeddedResource>

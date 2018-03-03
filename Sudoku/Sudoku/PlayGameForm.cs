@@ -30,13 +30,11 @@ namespace Sudoku
                 Hard - no highlights
 
                 OR 
-                check button ? 
+                check if right button ? 
              */
 
             // TODO add score system
-
-
-
+            // TODO add different type of puzzles, ex:fixed number >17
         }
         private void table_Paint(object sender, PaintEventArgs e)
         {

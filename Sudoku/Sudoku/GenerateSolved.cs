@@ -12,72 +12,27 @@ namespace Sudoku
 {
     public partial class GenerateSolvedForm: Form
     {
+        UI ui = new UI();
         public GenerateSolvedForm()
         {
             InitializeComponent();
         }
 
-        private TextBox GetTextBoxAt(int row, int col)
-            // This is just how this retarded function works  COL then ROW
-        { return (TextBox)table.GetControlFromPosition(col, row); 
-        }
-
-        void CreateTextBoxes()
-        {
-            for (int row = 0; row < 9; row++)
-            {
-                for (int col = 0; col < 9; col++)
-                {
-                    // Create the textBox formatting
-                    TextBox textBox = new TextBox
-                    {
-                        TextAlign = HorizontalAlignment.Center,
-                        Font = new Font("Arial", 20f, FontStyle.Bold),
-                        Dock = DockStyle.Fill,
-                        MaxLength = 1,
-                        BackColor = Color.White
-                    };
-
-                    // Creates the textbox as a controller at the indicated position
-                    table.Controls.Add(textBox, row, col);
-                    textBox.Text = 0.ToString(); // Default value
-                }
-            }
-        }
-
-        void PrintPuzzle(Sudoku sudoku)
-        {
-            for (int i = 0; i < 9; i++)
-            {
-                for (int j = 0; j < 9; j++)
-                {
-                    TextBox box = GetTextBoxAt(i, j);
-                    if (sudoku.board[i, j].isFixed)
-                    {
-                        box.ForeColor = Color.MediumVioletRed;
-                    }
-                    else box.ForeColor = Color.Black;
-                    if (sudoku.board[i, j].value != 0)
-                        box.Text = sudoku.board[i, j].value.ToString();
-                    else box.Text = " "; // Print an empty space instead of 0
-                }
-            }
-        }
-        void PrintAndSolvePuzzle()
+        private void PrintAndSolve()
         {
             Sudoku sudoku = new Sudoku(); // We need the logic from this class
-            sudoku.GeneratePuzzle();
-            if(sudoku.Solve(0, 0))
+            sudoku.GeneratePuzzle();       //Generate a random puzzle
+            if (sudoku.Solve(0, 0))
             {
-                PrintPuzzle(sudoku);
+                ui.PrintSolvedPuzzle(sudoku, table);
             }
         }
-
         // From main
         private void Form1_Load(object sender, EventArgs e)
         {
-            CreateTextBoxes();
-            PrintAndSolvePuzzle();
+            // We init every [i,j] with a text box so we can output stuff
+            ui.CreateTextBoxes(table);
+            PrintAndSolve();
         }
 
 
@@ -95,13 +50,7 @@ namespace Sudoku
 
         private void NewButton_Click(object sender, EventArgs e)
         {
-            Sudoku sudoku = new Sudoku();
-            sudoku.GeneratePuzzle();
-            if(sudoku.Solve(0,0))
-            {
-                PrintPuzzle(sudoku);
-            }
-
+            PrintAndSolve(); // To create a new solved puzzle we just recall this function
         }
     }
 }
