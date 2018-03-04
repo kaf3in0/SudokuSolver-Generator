@@ -53,15 +53,35 @@ namespace Sudoku
                     if (sudoku.board[i, j].isFixed)
                     {
                         box.ForeColor = Color.MediumVioletRed;
+                        box.ReadOnly = true;
                     }
-                    else box.ForeColor = Color.Black;
+                    else
+                    {
+                        box.ForeColor = Color.Black;
+                        box.ReadOnly = false;
+                    }
                     if (sudoku.board[i, j].value != 0)
                         box.Text = sudoku.board[i, j].value.ToString();
                     else box.Text = " "; // Print an empty space instead of 0
+
+                    // We set the textBox to a click event, so we can select everything inside it on click
+                    // The syntax is a bit wierd becaus we also have to pass in box as a parameter, that is how you do it
+                    box.Click += delegate (object sender, EventArgs e) { TextBox_Click(sender, e, box); };
+                    //this.BackButton.Click += new System.EventHandler(this.BackButton_Click);  ///example without param
                 }
             }
         }
 
+
+        //Selects everything in TextBox you click on
+        private void TextBox_Click(object sender, System.EventArgs e, TextBox box)
+        {
+            box.SelectAll();
+            /*or:
+             * box.SelectionStart = 0;
+             * box.SelectionLength = box.Text.Length;
+             */
+        }
 
         public void PrintNotSolvedPuzzle(Sudoku sudoku, TableLayoutPanel table)
         {
@@ -74,9 +94,22 @@ namespace Sudoku
                     {
                         box.ForeColor = Color.MediumVioletRed;
                         box.Text = sudoku.board[i, j].value.ToString();
+                        box.ReadOnly = true;
+
                     }
-                    else box.Text = " "; // Print an empty space instead of 0
+                    else
+                    {
+                        box.Text = " "; // Print an empty space instead of 0
+                        box.ForeColor = Color.Black;
+                        box.ReadOnly = false;
+                    }
+
+                    // We set the textBox to a click event, so we can select everything inside it on click
+                    // The syntax is a bit wierd becaus we also have to pass in box as a parameter, that is how you do it
+                    box.Click += delegate (object sender, EventArgs e) { TextBox_Click(sender, e, box); };
+                    //this.BackButton.Click += new System.EventHandler(this.BackButton_Click);  ///example without param
                 }
+
             }
         }
     }

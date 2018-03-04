@@ -18,7 +18,7 @@ namespace Sudoku
             InitializeComponent();
         }
 
-        private void PrintAndSolve()
+        private void Game()
         {
             Sudoku sudoku = new Sudoku(); // We need the logic from this class
             sudoku.GeneratePuzzle();       //Generate a random puzzle
@@ -32,7 +32,7 @@ namespace Sudoku
         {
             // We init every [i,j] with a text box so we can output stuff
             ui.CreateTextBoxes(table);
-            PrintAndSolve();
+            Game();
         }
 
 
@@ -43,14 +43,14 @@ namespace Sudoku
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            Menu form2 = new Menu();
-            form2.Show();
+            MenuForm form = new MenuForm();
+            form.Show();
             this.Hide();
         }
 
         private void NewButton_Click(object sender, EventArgs e)
         {
-            PrintAndSolve(); // To create a new solved puzzle we just recall this function
+            Game(); // To create a new solved puzzle we just recall this function
         }
     }
 }

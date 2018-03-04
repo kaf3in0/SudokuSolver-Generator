@@ -11,6 +11,7 @@ namespace Sudoku
 {
     public partial class PlayGameForm : Form
     {
+        UI ui = new UI();
         public PlayGameForm()
         {
             InitializeComponent();
@@ -39,6 +40,22 @@ namespace Sudoku
         private void table_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void Game()
+        {
+            Sudoku sudoku = new Sudoku();
+            sudoku.GeneratePuzzle();
+            sudoku.Solve(0, 0);
+            ui.PrintNotSolvedPuzzle(sudoku, table);
+
+           
+        }
+        private void PlayGameForm_Load_1(object sender, EventArgs e)
+        {
+            ui.CreateTextBoxes(table);
+            Game();
+            
         }
     }
 }

@@ -67,6 +67,7 @@
             this.Controls.Add(this.table);
             this.Name = "PlayGameForm";
             this.Text = "PlayGame";
+            this.Load += new System.EventHandler(this.PlayGameForm_Load_1);
             this.ResumeLayout(false);
 
         }

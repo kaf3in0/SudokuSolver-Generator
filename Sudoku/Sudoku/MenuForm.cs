@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Sudoku
 {
-    public partial class Menu : Form
+    public partial class MenuForm : Form
     {
-        public Menu()
+        public MenuForm()
         {
             InitializeComponent();
         }
