@@ -26,11 +26,16 @@ namespace Sudoku
             {
                 ui.PrintSolvedPuzzle(sudoku, table);
             }
+            //else /// Error or whatever - means puzzle couldn't be solved
         }
+
         // From main
         private void Form1_Load(object sender, EventArgs e)
         {
-            // We init every [i,j] with a text box so we can output stuff
+            /* We init every [i,j] with a text box so we can output the numbers
+             * the Table works like a framework for our textBoxes
+             * we generate the text boxes in such way that they are basicly just a multidimensional array
+            */
             ui.CreateTextBoxes(table);
             Game();
         }

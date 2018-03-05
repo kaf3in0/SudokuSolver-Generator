@@ -22,7 +22,7 @@ namespace Sudoku
             form.Show();
             this.Hide();
         }
-
+       
         private void PlayButton_Click(object sender, EventArgs e)
         {
             PlayGameForm form = new PlayGameForm();

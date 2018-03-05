@@ -83,6 +83,41 @@ namespace Sudoku
              */
         }
 
+        void FindWhatChanged(TextBox box, ref int row,ref int col, TableLayoutPanel table)
+        {
+            
+            for (int i = 0; i < 9; i++)
+            {
+                for(int j =0; j<9; j++)
+                {
+                    if(box.Text == GetTextBoxAt(i,j, table).Text)
+                    {
+                        return;
+                    }
+                }
+            }
+        }
+        // This happens when the user changes text
+        public void TextBox_Changed(object sender, EventArgs e, TextBox box, Sudoku sudoku, TableLayoutPanel table)
+        {
+            
+            string saveBox = box.Text;
+            box.Text = "N";
+            int row = 0, col = 0;
+            FindWhatChanged(box, ref row, ref col, table);
+            box.Text = saveBox;
+
+            PlayGameForm.userBoard[row,col] = box.Text;
+            if (sudoku.board[row, col].value.ToString() != PlayGameForm.userBoard[row, col])
+            {
+                box.ForeColor = Color.Red;
+            }
+            else box.ForeColor = Color.Black;
+          
+            //TODO THIS SHIT HAS TO BE DONE
+
+        }
+
         public void PrintNotSolvedPuzzle(Sudoku sudoku, TableLayoutPanel table)
         {
             for (int i = 0; i < 9; i++)
@@ -108,6 +143,12 @@ namespace Sudoku
                     // The syntax is a bit wierd becaus we also have to pass in box as a parameter, that is how you do it
                     box.Click += delegate (object sender, EventArgs e) { TextBox_Click(sender, e, box); };
                     //this.BackButton.Click += new System.EventHandler(this.BackButton_Click);  ///example without param
+
+                    
+                    box.TextChanged += delegate (object sender, EventArgs e) { TextBox_Changed(sender, e, box, sudoku, table); };
+                    
+                    //PlayGameForm playGameForm = new PlayGameForm();
+                    //box.TextChanged += new System.EventHandler(playGameForm.TextBox_Changed);
                 }
 
             }

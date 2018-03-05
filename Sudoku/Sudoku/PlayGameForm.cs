@@ -11,13 +11,18 @@ namespace Sudoku
 {
     public partial class PlayGameForm : Form
     {
+        private Sudoku sudoku = new Sudoku();
+        public static string[,] userBoard = new string[9, 9];
         UI ui = new UI();
+
+
         public PlayGameForm()
         {
             InitializeComponent();
         }
 
-        private void PlayGameForm_Load(object sender, EventArgs e)
+        
+        private void PlayGameForm_Loadddddd(object sender, EventArgs e)
         {
             // TODO this class should contain 2 boards, 1 fully solved and 1 that only 
                     //  shows the fixed values, for the user
@@ -42,20 +47,41 @@ namespace Sudoku
 
         }
 
-        private void Game()
+        private void FindWhatChanged()
         {
-            Sudoku sudoku = new Sudoku();
+
+        }
+        
+        private void InitUserBoard()
+        {
+            for (int i = 0; i < 9; i++)
+            {
+                for (int j = 0; j < 9; j++)
+                {
+                    TextBox box = ui.GetTextBoxAt(i, j, table);
+                    userBoard[i, j] = box.Text;
+                }
+            }
+        }
+        private void Game()
+        {   
             sudoku.GeneratePuzzle();
             sudoku.Solve(0, 0);
             ui.PrintNotSolvedPuzzle(sudoku, table);
-
-           
+            InitUserBoard();
+                /* 
+                 * TODO: When the user changes smth compare the 2 boards 
+                 *      do stuff after
+                 * When do we stop ? - Never, or when New/Back button is clicked
+                 * 
+                 */
         }
-        private void PlayGameForm_Load_1(object sender, EventArgs e)
+
+        // Form main
+        private void PlayGameForm_Load(object sender, EventArgs e)
         {
             ui.CreateTextBoxes(table);
-            Game();
-            
+            Game();        
         }
     }
 }
