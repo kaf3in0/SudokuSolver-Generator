@@ -10,9 +10,11 @@ C:\Users\Edward\source\repos\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\bin\Debug\Sudoku.exe
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\bin\Debug\Sudoku.pdb
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.csprojResolveAssemblyReference.cache
-C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.Form1.resources
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.Properties.Resources.resources
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.GenerateResource.Cache
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.csproj.CoreCompileInputs.cache
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.exe
 C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.pdb
+C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.GenerateSolvedForm.resources
+C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.PlayGameForm.resources
+C:\EDWARD\VS Projects\SudokuSolver-Generator\Sudoku\Sudoku\obj\Debug\Sudoku.MenuForm.resources
